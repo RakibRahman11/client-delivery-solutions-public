@@ -18,12 +18,12 @@ const NavBar = () => {
                             <img src={logo} alt="" width="80" height="60" />.com
                         </Link>
                     </div>
-                    <div className="collapse navbar-collapse">
-                        <ul className="mb-2 navbar-nav me-auto mb-lg-0">
-                            {/* <li className="nav-item">
-                                <Link className="nav-link active" to="/home">Home</Link>
-                            </li> */}
-                        </ul>
+                    <div className="collapse navbar-collapse justify-content-end me-auto">
+                        {/* <ul className="mb-2 navbar-nav me-auto mb-lg-0">
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/services">Services</Link>
+                            </li>
+                        </ul> */}
 
                         {user?.displayName && <img className='rounded-circle me-2' src={user.photoURL} alt="" />}
 
@@ -33,10 +33,22 @@ const NavBar = () => {
                         <form className="d-flex">
                             {
                                 user.displayName ?
-                                    <button onClick={logout} className='btn '>Logout</button> :
-                                    <Link className="navbar-brand" to="/login">
-                                        {user.displayName} <img src={login} alt="" width="30" height="25" />
-                                    </Link>
+                                    <div className="">
+                                        <button className='btn'><ul className="mb-2 navbar-nav me-auto mb-lg-0">
+                                            <li className="nav-item">
+                                                <Link className="nav-link active" to="/addServices">Add services</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link className="nav-link active" to="/order">Order</Link>
+                                            </li>
+                                        </ul></button>
+                                        <button onClick={logout} className='btn'>Logout</button>
+                                    </div> :
+                                    <div>
+                                        <Link className="navbar-brand" to="/login">
+                                            {user.displayName} <img src={login} alt="" width="30" height="25" />
+                                        </Link>
+                                    </div>
                             }
                         </form>
                     </div>
