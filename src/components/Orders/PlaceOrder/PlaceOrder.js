@@ -7,7 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 const PlaceOrder = () => {
     const { user } = useAuth();
     const { id } = useParams()
-    const { register, handleSubmit, reset, setValue } = useForm();
+    const { register, handleSubmit, reset} = useForm();
     const [order, setOrder] = useState([]);
     useEffect(() => {
         fetch('https://gentle-savannah-57371.herokuapp.com/addservices')
@@ -42,9 +42,9 @@ const PlaceOrder = () => {
                         <input className='mb-2 w-100' defaultValue={id} {...register("product")} />
                         <input className='mb-2 w-100' defaultValue={user.displayName} {...register("name")} />
                         <input className='mb-2 w-100' defaultValue={user.email} {...register("email", { required: true })} />
-                        <input className='mb-2 w-100' placeholder="Address" defaultValue="" {...register("address")} />
-                        <input className='mb-2 w-100' placeholder="City" defaultValue="" {...register("city")} />
-                        <input className='mb-2 w-100' placeholder="Contact" defaultValue="" {...register("phone")} />
+                        <input className='mb-2 w-100' placeholder="Address" defaultValue="" {...register("address", { required: true })} />
+                        <input className='mb-2 w-100' placeholder="City" defaultValue="" {...register("city", { required: true })} />
+                        <input className='mb-2 w-100' placeholder="Contact" defaultValue="" {...register("phone", { required: true })} />
                         <select {...register("status")}>
                             <option value="Pending">Pending</option>
                         </select>

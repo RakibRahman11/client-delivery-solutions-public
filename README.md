@@ -1,6 +1,6 @@
 # Delivery Solutions Website
 
-[LIVE SITE Link](https://delivery-solutions-home.web.app/).
+[LIVE SITE Link](https://delivery-solutions-home.web.app/)
 
 - It's the official site of Delivery Solutions
 - We are ready to deliver your desired products under mentioned catagories

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import firebaseInit from '../../Firebase/firebase.init';
-import useFirebase from '../../hooks/useFirebase';
 import logo from "../../Images/Icons/logo.png"
 import login from "../../Images/Icons/login.png"
+import useAuth from '../../hooks/useAuth';
 
 firebaseInit()
 
 const NavBar = () => {
-    const { user, logout } = useFirebase()
+    const { user, logout } = useAuth()
     return (
         <div className='mb-5'>
             <nav className="navbar navbar-expand-lg navbar-light ">
@@ -19,17 +19,8 @@ const NavBar = () => {
                         </Link>
                     </div>
                     <div className="collapse navbar-collapse justify-content-end me-auto">
-                        {/* <ul className="mb-2 navbar-nav me-auto mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link active" to="/services">Services</Link>
-                            </li>
-                        </ul> */}
-
                         {user?.displayName && <img className='rounded-circle me-2' src={user.photoURL} alt="" />}
-
                         {user.displayName}
-
-                        {/* {isLogin.displayName} */}
                         <form className="d-flex">
                             {
                                 user.displayName ?

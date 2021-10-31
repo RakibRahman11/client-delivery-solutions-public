@@ -1,29 +1,23 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import firebaseInit from '../../../Firebase/firebase.init';
-// import useFirebase from '../../../hooks/useFirebase';
 
-firebaseInit()
 
 const AddServices = () => {
-    // const {user} = useFirebase()
     const { register, handleSubmit, reset } = useForm();
     console.log(register);
-    // console.log(register);
-    // console.log(register);
     const [admin, setAdmin] = useState()
 
     const onSubmit = data => {
         console.log(data);
-        if(data.password===""){
+        if (data.password === "") {
             axios.post('https://gentle-savannah-57371.herokuapp.com/addservices', data)
-            .then(res => {
-                if(res){
-                    alert('sure to add?');
-                reset();
-                }
-            })
+                .then(res => {
+                    if (res) {
+                        alert('sure to add?');
+                        reset();
+                    }
+                })
         }
         setAdmin(data.password)
         reset()
@@ -42,7 +36,7 @@ const AddServices = () => {
                         <div className="login-form">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input
-                                    {...register("title", { required: true, maxLength: 20 })}
+                                    {...register("title", { required: true})}
                                     placeholder="Title"
                                     className="p-2 m-2 w-100"
                                 />

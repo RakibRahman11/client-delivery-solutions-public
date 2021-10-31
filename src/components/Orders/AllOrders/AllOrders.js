@@ -7,6 +7,7 @@ firebaseInit()
 
 const AllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
+    console.log(allOrders);
     const [control, setControl] = useState(false)
     const { user } = useAuth()
     useEffect(() => {
@@ -42,9 +43,6 @@ const AllOrders = () => {
         console.log(admin);
         reset()
     }
-    // const handleUpdate = () => {
-    //   document.getElementById("myButton")
-    // }
     return (
         <div>
             {
@@ -71,12 +69,12 @@ const AllOrders = () => {
                                     <td>{pd?.name}</td>
                                     <td>{pd?.email}</td>
                                     {
-                                        admin === 'admin123' && <td className="my-2 btn-sm btn-outline-danger">{pd?.status}</td>
+                                        admin === 'admin123' && 
+                                            <td className="my-2 btn-sm btn-outline-danger">{pd?.status}</td>
                                     }
                                     {
                                         admin === 'admin123' && <div>
                                             <button onClick={() => projectDelete(allOrders[index]?._id)} className="p-2 btn bg-danger">Delete</button>
-                                            {/* <h1 onClick={handleUpdate} className='btn btn-outline-warning ms-2' id="myButton" value="Open Curtain">Curtain</h1> */}
                                         </div>
                                     }
                                 </tr>
