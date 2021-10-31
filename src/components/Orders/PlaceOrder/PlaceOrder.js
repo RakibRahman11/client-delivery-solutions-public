@@ -7,7 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 const PlaceOrder = () => {
     const { user } = useAuth();
     const { id } = useParams()
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, setValue } = useForm();
     const [order, setOrder] = useState([]);
     useEffect(() => {
         fetch('https://gentle-savannah-57371.herokuapp.com/addservices')
@@ -15,7 +15,8 @@ const PlaceOrder = () => {
             .then(data => setOrder(data))
     })
     const find = order?.find(item => item._id === id)
-    const onSubmit = data => {
+
+    const onSubmit = (data) => {
         axios.post('https://gentle-savannah-57371.herokuapp.com/placeOrder', data)
             .then(res => {
                 alert('sure to add?');
@@ -34,7 +35,7 @@ const PlaceOrder = () => {
                     <p>Price: ${find?.price}</p>
                 </div>
             </div>
-            <div className="w-25 m-auto mt-5">
+            <div className="m-auto mt-5 w-25">
                 <h5 className='mb-3'>Please provide the information</h5>
                 <div className="d-flex justify-content-center align-items-center">
                     <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
@@ -44,7 +45,11 @@ const PlaceOrder = () => {
                         <input className='mb-2 w-100' placeholder="Address" defaultValue="" {...register("address")} />
                         <input className='mb-2 w-100' placeholder="City" defaultValue="" {...register("city")} />
                         <input className='mb-2 w-100' placeholder="Contact" defaultValue="" {...register("phone")} />
+                        <select {...register("status")}>
+                            <option value="Pending">Pending</option>
+                        </select>
                         <br />
+
                         <input className="mt-2 w-50 btn btn-outline-primary" type="submit" />
                     </form>
                 </div>

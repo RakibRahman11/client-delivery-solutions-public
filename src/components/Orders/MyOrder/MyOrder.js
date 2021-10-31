@@ -20,17 +20,17 @@ const MyOrder = () => {
         <div>
             {
                 user.displayName && <div className='mt-5 bg-color'>
-                {
-                    product[0] ? <h1 className='my-5'>Thank you for the orders <i className="far fa-smile-beam"></i></h1> : <h1 className='my-5'>You don't have any pending order <i class="far fa-frown"></i></h1>
-                }
-                <div className="container">
-                    <div className="row">
-                        {
-                            product.map(orders => <PlacedOrder orders={orders}></PlacedOrder>)
-                        }
+                    {
+                        product[0] ? <h1 className='my-5'>Thank you for the orders <i className="far fa-smile-beam"></i></h1> : <h1 className='my-5'>You don't have any pending order <i class="far fa-frown"></i></h1>
+                    }
+                    <div className="container">
+                        <div className="row">
+                            {
+                                product.map(orders => <PlacedOrder orders={orders}></PlacedOrder>)
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
             }
         </div>
     );

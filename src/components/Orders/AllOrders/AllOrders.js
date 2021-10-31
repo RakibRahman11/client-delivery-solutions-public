@@ -42,6 +42,9 @@ const AllOrders = () => {
         console.log(admin);
         reset()
     }
+    // const handleUpdate = () => {
+    //   document.getElementById("myButton")
+    // }
     return (
         <div>
             {
@@ -58,6 +61,7 @@ const AllOrders = () => {
                                 <th scope="col">SL no.</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         {allOrders?.map((pd, index) => (
@@ -66,9 +70,14 @@ const AllOrders = () => {
                                     <td>{index}</td>
                                     <td>{pd?.name}</td>
                                     <td>{pd?.email}</td>
-                                    <td>{pd?.date}</td>
                                     {
-                                        admin === 'admin123' && <button onClick={() => projectDelete(allOrders[index]?._id)} className="p-2 btn bg-danger">Delete</button>
+                                        admin === 'admin123' && <td className="my-2 btn-sm btn-outline-danger">{pd?.status}</td>
+                                    }
+                                    {
+                                        admin === 'admin123' && <div>
+                                            <button onClick={() => projectDelete(allOrders[index]?._id)} className="p-2 btn bg-danger">Delete</button>
+                                            {/* <h1 onClick={handleUpdate} className='btn btn-outline-warning ms-2' id="myButton" value="Open Curtain">Curtain</h1> */}
+                                        </div>
                                     }
                                 </tr>
                             </tbody>

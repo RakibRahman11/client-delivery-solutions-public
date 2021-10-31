@@ -27,10 +27,10 @@ const PlacedOrder = (props) => {
                 .then(data => {
                     if (data?.deletedCount) {
                         setControl(!control);
-                      } else {
+                    } else {
                         setControl(false);
-                      }
-                      window.location.reload()
+                    }
+                    window.location.reload()
                 })
         }
     }
@@ -44,7 +44,10 @@ const PlacedOrder = (props) => {
                 <div className="card-body">
                     <h2 className="card-title">{myProducts[0]?.title}</h2>
                 </div>
-                <button onClick={() => projectDelete(_id)} className='btn btn-outline-danger'>Cancel <i className="fas fa-times"></i></button>
+                <div>
+                <button onClick={() => projectDelete(_id)} className='btn btn-outline-danger w-50'>Cancel <i className="fas fa-times"></i></button>
+                <button className='btn btn-outline-warning w-50'>Pending</button>
+                </div>
             </div>
         </div>
     );
