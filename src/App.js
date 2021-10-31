@@ -11,6 +11,7 @@ import Services from './components/Services/Services/Services';
 import AuthProvider from './context/AuthProvider';
 import MyOrder from './components/Orders/MyOrder/MyOrder';
 import PlaceOrder from './components/Orders/PlaceOrder/PlaceOrder';
+import AllOrders from './components/Orders/AllOrders/AllOrders';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route exact path="/order">
               <MyOrder></MyOrder>
+            </Route>
+            <Route exact path="/allOrders">
+              <AllOrders></AllOrders>
             </Route>
             <PrivateRoute exact path='/PlaceOrders/:id'>
             <PlaceOrder></PlaceOrder>

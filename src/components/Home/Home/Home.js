@@ -7,7 +7,7 @@ import Worker from '../Worker/Worker';
 const Home = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/addservices')
+        fetch('https://gentle-savannah-57371.herokuapp.com/addservices')
             .then(response => response.json())
             .then(data => setServices(data))
     }, [])

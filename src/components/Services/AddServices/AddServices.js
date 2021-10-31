@@ -13,7 +13,7 @@ const AddServices = () => {
     const onSubmit = data => {
         // data.email = user?.email;
         // console.log(data);
-        axios.post('http://localhost:5000/addservices', data)
+        axios.post('https://gentle-savannah-57371.herokuapp.com/addservices', data)
             .then(res => {
                 alert('sure to add?');
                 reset();

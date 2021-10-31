@@ -10,13 +10,13 @@ const PlaceOrder = () => {
     const { register, handleSubmit, reset } = useForm();
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/addservices')
+        fetch('https://gentle-savannah-57371.herokuapp.com/addservices')
             .then(response => response.json())
             .then(data => setOrder(data))
     })
     const find = order?.find(item => item._id === id)
     const onSubmit = data => {
-        axios.post('http://localhost:5000/placeOrder', data)
+        axios.post('https://gentle-savannah-57371.herokuapp.com/placeOrder', data)
             .then(res => {
                 alert('sure to add?');
                 reset();

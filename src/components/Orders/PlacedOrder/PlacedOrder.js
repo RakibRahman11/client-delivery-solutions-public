@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import firebaseInit from '../../../Firebase/firebase.init';
 
 firebaseInit()
@@ -9,7 +8,7 @@ const PlacedOrder = (props) => {
     const [services, setServices] = useState([])
     const [control, setControl] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5000/addservices')
+        fetch('https://gentle-savannah-57371.herokuapp.com/addservices')
             .then(response => response.json())
             .then(data => setServices(data))
     }, [control])
@@ -18,7 +17,7 @@ const PlacedOrder = (props) => {
     const projectDelete = id => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            const uri = `http://localhost:5000/placeOrder/${id}`
+            const uri = `https://gentle-savannah-57371.herokuapp.com/placeOrder/${id}`
             // console.log(uri);
             fetch(uri, {
                 method: 'DELETE',

@@ -41,6 +41,9 @@ const NavBar = () => {
                                             <li className="nav-item">
                                                 <Link className="nav-link active" to="/order">Order</Link>
                                             </li>
+                                            <li className="nav-item">
+                                                <Link className="nav-link active" to="/allOrders">All Orders</Link>
+                                            </li>
                                         </ul></button>
                                         <button onClick={logout} className='btn'>Logout</button>
                                     </div> :
