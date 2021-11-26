@@ -7,10 +7,10 @@ import useAuth from '../../../hooks/useAuth';
 const PlaceOrder = () => {
     const { user } = useAuth();
     const { id } = useParams()
-    const { register, handleSubmit, reset} = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch('https://gentle-savannah-57371.herokuapp.com/addservices')
+        fetch('https://gentle-savannah-57371.herokuapp.com/products')
             .then(response => response.json())
             .then(data => setOrder(data))
     })

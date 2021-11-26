@@ -69,8 +69,8 @@ const AllOrders = () => {
                                     <td>{pd?.name}</td>
                                     <td>{pd?.email}</td>
                                     {
-                                        admin === 'admin123' && 
-                                            <td className="my-2 btn-sm btn-outline-danger">{pd?.status}</td>
+                                        admin === 'admin123' &&
+                                        <td className="my-2 btn-sm btn-outline-danger">{pd?.status}</td>
                                     }
                                     {
                                         admin === 'admin123' && <div>
